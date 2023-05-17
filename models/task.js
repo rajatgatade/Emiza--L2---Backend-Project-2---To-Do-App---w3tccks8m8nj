@@ -14,8 +14,27 @@ Complete your other field here
 
 var taskSchema = mongoose.Schema({
   //Write your code here.
+  heading:{
+    type:String,
+    required:true
+  },
+  description:{
+    type:String,
+    required:true
+  },
+  status:{
+    type:String,
+    default:'pending',
+    enum:['pending','done']
+  },
+  creator_id:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'user'
+  }
 },
-{ /* ... */ }
+{ 
+  timestamps:true
+ }
 );
 
 
